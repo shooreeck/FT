@@ -1,5 +1,5 @@
-############################# PIDs block ##############################
 
+############################# PIDs block ##############################
 
 set gyro_lpf1_type = PT2
 set gyro_lpf2_static_hz = 400
@@ -17,13 +17,6 @@ set blackbox_sample_rate = 1/2
 set min_throttle = 1000
 set dshot_bidir = ON
 set motor_pwm_rate = 16000
-set failsafe_delay = 2000
-set failsafe_off_delay = 2000
-set failsafe_throttle = 1757
-set failsafe_switch_mode = STAGE2
-set failsafe_throttle_low_delay = 297
-set failsafe_procedure = AUTO-LAND
-set failsafe_recovery_delay = 17
 set bat_capacity = 10000
 set vbat_max_cell_voltage = 420
 set vbat_min_cell_voltage = 280
@@ -38,14 +31,14 @@ set yaw_deadband = 2
 set pid_process_denom = 2
 set runaway_takeoff_prevention = OFF
 set simplified_gyro_filter = OFF
-
 set rpm_filter_min_hz = 80
 set craft_name = F7
 set pilot_name = .
 
+############################# Rate profiles block ##############################
+
 profile 0
 
-# profile 0
 set vbat_sag_compensation = 100
 set iterm_relax_cutoff = 10
 set p_pitch = 45
@@ -74,3 +67,15 @@ set simplified_feedforward_gain = 0
 set simplified_pitch_d_gain = 95
 set tpa_rate = 45
 set tpa_breakpoint = 1400
+
+############################# Failsafe block ##############################
+
+set failsafe_delay = 2000
+set failsafe_off_delay = 2000
+set failsafe_throttle = 1757
+set failsafe_switch_mode = STAGE2
+set failsafe_throttle_low_delay = 297
+set failsafe_procedure = AUTO-LAND
+set failsafe_recovery_delay = 17
+
+
