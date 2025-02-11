@@ -5,7 +5,11 @@ on:
     inputs:
       text1:
         description: "Text one"
-        type: string
+        type: choice
+        options: 
+        - rush
+        - diatone
+        - geprc
         required: true
         default: "Hello "
       text2:
