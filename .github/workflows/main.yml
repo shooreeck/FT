@@ -47,6 +47,11 @@ jobs:
   merge-texts:
     runs-on: ubuntu-latest 
     steps:
+      - name: Read file contents
+        id: read_file
+        uses: satya-500/read-file-github-action@v1
+        with:
+          path: "../../vtx_tables/rush"
       - name: Printing text
         run: |
           echo "##########################################################################################"
@@ -56,6 +61,7 @@ jobs:
           echo "##########################################################################################"
 
           echo "Here is your choice:"
+          echo ${ steps.read_file.outputs.contents }
           echo "You need some awesome preset For the ${{inputs.frame_size}} drone"
           echo "with the ${{inputs.flight_controller}} stack and with"
           echo "with the ${{inputs.vtx_name}} video transmitter!"
