@@ -1,3 +1,6 @@
+############################# PIDs block ##############################
+
+
 set gyro_lpf1_type = PT2
 set gyro_lpf2_static_hz = 400
 set gyro_notch1_hz = 138
