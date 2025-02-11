@@ -1,0 +1,10 @@
+env:
+  TEXT1: "Hello "
+  TEXT2: "Dude"
+
+jobs:
+  merge-texts:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Write text to env
+        run: echo "${{ env.TEXT1 }}  ${{ env.TEXT2 }} "
