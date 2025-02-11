@@ -47,11 +47,14 @@ jobs:
   merge-texts:
     runs-on: ubuntu-latest 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
       - name: Read file contents
-        id: read_file
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: vtx_tables/rush
+        run: |
+          CONTENT=$(cat vtx_tables/rush.txt)
+          echo "File: $CONTENT"
+        
       - name: Printing text
         run: |
           echo "##########################################################################################"
