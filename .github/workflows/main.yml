@@ -5,10 +5,12 @@ on:
     inputs:
       text1:
         description: "Text one"
+        type: string
         required: true
         default: "Hello "
       text2:
         description: "Text one"
+        type: string
         required: true
         default: "Dude"
       
@@ -18,10 +20,10 @@ jobs:
     steps:
       - name: Print ens
         run: |
-          echo "${{ github.event.inputs.text1 }}"
-          echo "Second input is: ${{ github.event.inputs.text2 }}"
+          echo "${{ inputs.text1 }}"
+          echo "Second input is: ${{ inputs.text2 }}"
 
       - name: Merge text
         run: |
-          MERGED="${{ github.events.inputs.text1 }} plus ${{ github.events.inputs.text2 }}"
+          MERGED="${{ inputs.text1 }} plus ${{ inputs.text2 }}"
           echo "MERGED_TEXT=$MERGED" >> $GITHUB_ENV
