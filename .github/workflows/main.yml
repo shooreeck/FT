@@ -18,5 +18,5 @@ jobs:
     steps:
       - name: Merge text
         run: |
-          MERGED="${{ github.events.inputs.text1 }} ${{ github.events.inputs.text2 }}"
+          MERGED="${{ github.events.inputs.text1 }} plus ${{ github.events.inputs.text2 }}"
           echo "MERGED_TEXT=$MERGED" >> $GITHUB_ENV
