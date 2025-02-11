@@ -1,4 +1,4 @@
-name: Test text marging
+name: Preset generator
 
 on: 
   workflow_dispatch:
