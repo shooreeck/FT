@@ -1,6 +1,5 @@
+
 ###################### VTX Table ###############################
-
-
 
 vtxtable bands 6
 vtxtable channels 8
