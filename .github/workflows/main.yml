@@ -3,31 +3,60 @@ name: Test text marging
 on: 
   workflow_dispatch:
     inputs:
-      text1:
-        description: "Text one"
+      frame_size:
+        description: "Select Frame size (F7..F11)"
+        type: choice
+        options: 
+        - f7
+        - f8
+        - f9
+        - f10
+        - f11
+        required: true
+        default: "f7"
+      flight_controller:
+        description: "Select Flight controller"
         type: choice
         options: 
         - rush
         - diatone
         - geprc
         required: true
-        default: "Hello "
-      text2:
-        description: "Text one"
-        type: string
+        default: "rush"
+      vtx_type:
+        description: "Select VTX type (1.3 .. 5.8)"
+        type: choice
+        options: 
+        - 5,8
+        - 1,3
+        - 2,4
+        - 3,3
         required: true
-        default: "Dude"
+        default: "5,8"
+      vtx_name:
+        description: "Select VTX name"
+        type: choice
+        options: 
+        - ft
+        - rush
+        - geprc
+        required: true
+        default: "ft"
       
 jobs:
   merge-texts:
     runs-on: ubuntu-latest 
     steps:
-      - name: Print ens
+      - name: Printing text
         run: |
-          echo "${{ inputs.text1 }}"
-          echo "Second input is: ${{ inputs.text2 }}"
+          echo "##########################################################################################"
+          echo "##########################################################################################"
+          echo "######################### Welcome to FLASH TECH preset generator #########################"
+          echo "##########################################################################################"
+          echo "##########################################################################################"
 
-      - name: Merge text
-        run: |
-          MERGED="${{ inputs.text1 }} plus ${{ inputs.text2 }}"
-          echo "MERGED_TEXT=$MERGED" >> $GITHUB_ENV
+          echo "Here is your choice:"
+          echo "You need some awesome preset For the ${{inputs.frame_size}} drone"
+          echo "with the ${{inputs.flight_controller}} stack and with"
+          echo "with the ${{inputs.vtx_name}} video transmitter!"
+          
