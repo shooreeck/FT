@@ -78,4 +78,7 @@ set failsafe_throttle_low_delay = 297
 set failsafe_procedure = AUTO-LAND
 set failsafe_recovery_delay = 17
 
+# rxfail
+rxfail 3 h
+
 
