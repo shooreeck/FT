@@ -32,12 +32,11 @@ on:
         - "2.4"
         - "3.3"
         required: true
-        default: "5,8"
+        default: "5.8"
       vtx_name:
         description: "Select VTX name"
         type: choice
         options: 
-        - ft
         - max_solo
         - geprc
         required: true
@@ -67,7 +66,7 @@ jobs:
 
       - name: Upload VTX table to the file
         run: |
-          VTX_TABLE=$(cat vtx_tables/5.8/${{inputs.vtx_name}}.txt)
+          VTX_TABLE=$(cat vtx_tables/${{inputs.vtx_type}}/${{inputs.vtx_name}}.txt)
           echo "$VTX_TABLE" >> ${{ env.FILE_NAME }} 
           
       - name: Post the results
