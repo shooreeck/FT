@@ -51,7 +51,7 @@ jobs:
         id: read_file
         uses: juliangruber/read-file-action@v1
         with:
-          path: ../../vtx_tables/rush
+          path: vtx_tables/rush
       - name: Printing text
         run: |
           echo "##########################################################################################"
