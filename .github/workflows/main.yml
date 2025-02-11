@@ -38,7 +38,7 @@ on:
         type: choice
         options: 
         - ft
-        - rush
+        - max_solo
         - geprc
         required: true
         default: "ft"
