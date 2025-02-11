@@ -16,6 +16,11 @@ jobs:
   merge-texts:
     runs-on: ubuntu-latest 
     steps:
+      - name: Print ens
+        run: |
+          echo "First input is: ${{ github.events.inputs.text1 }}"
+          echo "Second input is: ${{ github.events.inputs.text2 }}"
+
       - name: Merge text
         run: |
           MERGED="${{ github.events.inputs.text1 }} plus ${{ github.events.inputs.text2 }}"
