@@ -49,9 +49,9 @@ jobs:
     steps:
       - name: Read file contents
         id: read_file
-        uses: satya-500/read-file-github-action@v1
+        uses: juliangruber/read-file-action@v1
         with:
-          path: "../../vtx_tables/rush"
+          path: ../../vtx_tables/rush
       - name: Printing text
         run: |
           echo "##########################################################################################"
