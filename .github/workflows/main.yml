@@ -20,6 +20,3 @@ jobs:
         run: |
           MERGED="${{ github.events.inputs.text1 }} ${{ github.events.inputs.text2 }}"
           echo "MERGED_TEXT=$MERGED" >> $GITHUB_ENV
-        
-      - name: Print result
-        run: echo "Merged text: $MERGED_TEXT"
