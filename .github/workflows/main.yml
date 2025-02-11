@@ -1,10 +1,21 @@
-env:
-  TEXT1: "Hello "
-  TEXT2: "Dude"
+name: Test text marging
+
+on: 
+  workflow_dispatch:
+    inputs:
+      text1:
+        description: "Text one"
+        required: true
+        default: "Hello "
+      text2:
+        description: "Text one"
+        required: true
+        default: "Dude"
+      
 
 jobs:
   merge-texts:
     runs-on: ubuntu-latest 
     steps:
       - name: Write text to env
-        run: echo "${{ env.TEXT1 }}  ${{ env.TEXT2 }} "
+        run: echo "${{ github.events.inputs.text1 }}  ${{ github.events.inputs.text2 }} "
