@@ -59,6 +59,16 @@ jobs:
         run: |
           HEADER=$(cat header.txt)
           echo "$HEADER" >> ${{ env.FILE_NAME }} 
+
+      - name: Upload PIDs table to the file
+        run: |
+          PID_TABLE=$(cat PIDs/${{inputs.frame_size}}.txt)
+          echo "$PID_TABLE" >> ${{ env.FILE_NAME }} 
+
+      - name: Upload VTX table to the file
+        run: |
+          VTX_TABLE=$(cat vtx_tables/5.8/${{inputs.vtx_name}}.txt)
+          echo "$VTX_TABLE" >> ${{ env.FILE_NAME }} 
           
       - name: Post the results
         uses: actions/upload-artifact@v4
