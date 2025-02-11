@@ -53,7 +53,7 @@ jobs:
       - name: Read file contents
         run: |
           CONTENT=$(cat vtx_tables/rush.txt)
-          echo "$CONTENT" >> test.txt
+          echo "$CONTENT" > test.txt
         
       - name: Printing text
         run: |
@@ -66,8 +66,9 @@ jobs:
           echo "You need some awesome preset For the ${{inputs.frame_size}} drone" >> test.txt
           echo "with the ${{inputs.flight_controller}} stack and with" >> test.txt
           echo "with the ${{inputs.vtx_name}} video transmitter!" >> test.txt
+          
       - name: Post the results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: result-file
           path: test.txt
