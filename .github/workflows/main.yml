@@ -58,11 +58,11 @@ jobs:
       - name: Upload header to the file
         run: |
           HEADER=$(cat header.txt)
-          echo "$HEADER" > $FILE_NAME 
+          echo "$HEADER" >> ${{ env.FILE_NAME }} 
           
       - name: Post the results
         uses: actions/upload-artifact@v4
         with:
           name: result-file
-          path: $FILE_NAME
+          path: ${{ env.FILE_NAME }} 
           
