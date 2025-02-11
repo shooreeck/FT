@@ -49,23 +49,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        
-      - name: Read file contents
-        run: |
-          CONTENT=$(cat vtx_tables/rush.txt)
-          echo "$CONTENT" > test.txt
-        
-      - name: Printing text
-        run: |
-          echo "##########################################################################################" >> test.txt
-          echo "##########################################################################################" >> test.txt
-          echo "######################### Welcome to FLASH TECH preset generator #########################" >> test.txt
 
-
-          echo "Here is your choice:" >> test.txt
-          echo "You need some awesome preset For the ${{inputs.frame_size}} drone" >> test.txt
-          echo "with the ${{inputs.flight_controller}} stack and with" >> test.txt
-          echo "with the ${{inputs.vtx_name}} video transmitter!" >> test.txt
+      - name: Create new preset file name
+        run: |
+          FILE_NAME=${{inputs.frame_size}}_${{inputs.flight_controller}}_${{inputs.vtx_name}}.txt
+        
+      - name: Upload header to the file
+        run: |
+          HEADER=$(cat header.txt)
+          echo "$HEADER" > $FILE_NAME
           
       - name: Post the results
         uses: actions/upload-artifact@v4
