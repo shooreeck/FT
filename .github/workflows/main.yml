@@ -70,14 +70,13 @@ jobs:
           echo "set craft_name = ${{inputs.frame_size}}" >> ${{ env.FILE_NAME }}
 
       - name: Upload OSD table to the file
-        if: ${{ env.custom_osd }} == 'true'
+        if: ${{ inputs.custom_osd }} == true
         run: |
           OSD=$(cat OSD/custom_osd.txt)
-          echo "${{ env.custom_osd }} == 'true'"
           echo "$OSD" >> ${{ env.FILE_NAME }}
 
       - name: Upload OSD table to the file
-        if: ${{ env.custom_osd }} == 'false'
+        if: ${{ inputs.custom_osd }} == false
         run: |
           OSD=$(cat OSD/default_osd.txt)
           echo "$OSD" >> ${{ env.FILE_NAME }}
