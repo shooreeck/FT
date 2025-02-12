@@ -1,5 +1,5 @@
 
-############################# PIDs block ##############################
+############################# Master block ##############################
 
 set gyro_lpf1_type = PT2
 set gyro_lpf2_static_hz = 400
@@ -32,7 +32,6 @@ set pid_process_denom = 2
 set runaway_takeoff_prevention = OFF
 set simplified_gyro_filter = OFF
 set rpm_filter_min_hz = 80
-set craft_name = F7
 set pilot_name = .
 
 ############################# Rate profiles block ##############################
@@ -68,7 +67,7 @@ set simplified_pitch_d_gain = 95
 set tpa_rate = 45
 set tpa_breakpoint = 1400
 
-############################# Failsafe block ##############################
+################################## Failsafe block ################################
 
 set failsafe_delay = 2000
 set failsafe_off_delay = 2000
@@ -80,5 +79,3 @@ set failsafe_recovery_delay = 17
 
 # rxfail
 rxfail 3 h
-
-
