@@ -73,6 +73,7 @@ jobs:
         if: ${{ env.custom_osd }} == 'true'
         run: |
           OSD=$(cat OSD/custom_osd.txt)
+          echo "${{ env.custom_osd }} == 'true'"
           echo "$OSD" >> ${{ env.FILE_NAME }}
 
       - name: Upload OSD table to the file
