@@ -39,6 +39,7 @@ on:
         options: 
         - max_solo
         - geprc
+        - rush
         required: true
         default: "ft"
       custom_osd:
