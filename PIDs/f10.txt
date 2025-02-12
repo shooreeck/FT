@@ -25,7 +25,6 @@ set runaway_takeoff_prevention = OFF
 set simplified_gyro_filter = OFF
 set debug_mode = GYRO_SCALED
 set vcd_video_system = PAL
-set craft_name = F10
 set pilot_name = .
 ############################# Rate profiles block ##############################
 
