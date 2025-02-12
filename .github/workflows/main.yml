@@ -74,4 +74,9 @@ jobs:
         with:
           name: result-file
           path: ${{ env.FILE_NAME }} 
+
+      - name: Upload footer to the file
+        run: |
+          FOOTER=$(cat footer.txt)
+          echo "$FOOTER" >> ${{ env.FILE_NAME }}
           
