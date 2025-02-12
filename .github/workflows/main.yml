@@ -41,9 +41,10 @@ on:
         - geprc
         required: true
         default: "ft"
-      default_osd:
+      custom_osd:
         description: "Тестова ОСД ..."
         type: boolean
+        default: false
       
 jobs:
   merge-texts:
@@ -64,10 +65,22 @@ jobs:
 
       - name: Upload Master table to the file
         run: |
-          MASTER_TABLE=$(cat MASTER/${{inputs.frame_size}}.txt)
+          MASTER_TABLE=$(cat PIDs/${{inputs.frame_size}}.txt)
           echo "$MASTER_TABLE" >> ${{ env.FILE_NAME }} 
           echo "set craft_name = ${{inputs.frame_size}}" >> ${{ env.FILE_NAME }}
 
+      - name: Upload OSD table to the file
+        if: ${{ env.custom_osd }} == 'true'
+        run: |
+          OSD=$(cat OSD/custom_osd.txt)
+          echo "$OSD" >> ${{ env.FILE_NAME }}
+
+      - name: Upload OSD table to the file
+        if: ${{ env.custom_osd }} == 'false'
+        run: |
+          OSD=$(cat OSD/default_osd.txt)
+          echo "$OSD" >> ${{ env.FILE_NAME }}
+          
       - name: Upload VTX table to the file
         run: |
           VTX_TABLE=$(cat vtx_tables/${{inputs.vtx_type}}/${{inputs.vtx_name}}.txt)
@@ -82,8 +95,6 @@ jobs:
         run: |
           FOOTER=$(cat footer.txt)
           echo "$FOOTER" >> ${{ env.FILE_NAME }}
-
-      
           
       - name: Post the results
         uses: actions/upload-artifact@v4
