@@ -68,6 +68,11 @@ jobs:
         run: |
           VTX_TABLE=$(cat vtx_tables/${{inputs.vtx_type}}/${{inputs.vtx_name}}.txt)
           echo "$VTX_TABLE" >> ${{ env.FILE_NAME }} 
+
+      - name: Upload footer to the file
+        run: |
+          FOOTER=$(cat footer.txt)
+          echo "$FOOTER" >> ${{ env.FILE_NAME }}
           
       - name: Post the results
         uses: actions/upload-artifact@v4
@@ -75,8 +80,4 @@ jobs:
           name: result-file
           path: ${{ env.FILE_NAME }} 
 
-      - name: Upload footer to the file
-        run: |
-          FOOTER=$(cat footer.txt)
-          echo "$FOOTER" >> ${{ env.FILE_NAME }}
           
