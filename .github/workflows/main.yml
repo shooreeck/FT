@@ -69,17 +69,14 @@ jobs:
           echo "$MASTER_TABLE" >> ${{ env.FILE_NAME }} 
           echo "set craft_name = ${{inputs.frame_size}}" >> ${{ env.FILE_NAME }}
 
-      - name: Upload OSD table to the file
-        if: ${{ inputs.custom_osd }} 
+      - name: Upload OSD table to the file        
         run: |
-          OSD=$(cat OSD/custom_osd.txt)
-          echo "$OSD" >> ${{ env.FILE_NAME }}
-
-      - name: Upload OSD table to the file
-        if: ${{ inputs.custom_osd }} == false
-        run: |
-          OSD=$(cat OSD/default_osd.txt)
-          echo "$OSD" >> ${{ env.FILE_NAME }}
+          if [[ ${{ inputs.custom_osd }} ]]; then
+            OSD=$(cat OSD/custom_osd.txt)
+          else
+            OSD=$(cat OSD/default_osd.txt)
+          fi
+            echo "$OSD" >> ${{ env.FILE_NAME }}
           
       - name: Upload VTX table to the file
         run: |
