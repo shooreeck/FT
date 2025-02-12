@@ -72,11 +72,10 @@ jobs:
       - name: Upload OSD table to the file        
         run: |
           if [[ ${{ inputs.custom_osd }} ]]; then
-            OSD=$(cat OSD/custom_osd.txt)
+            echo $(cat OSD/custom_osd.txt) >> ${{ env.FILE_NAME }}
           else
-            OSD=$(cat OSD/default_osd.txt)
+            echo $(cat OSD/default_osd.txt) >> ${{ env.FILE_NAME }}
           fi
-            echo "$OSD" >> ${{ env.FILE_NAME }}
           
       - name: Upload VTX table to the file
         run: |
