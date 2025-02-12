@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       frame_size:
-        description: "Select Frame size (F7..F11)"
+        description: "Оберіть для якого дрона (F7..F11)"
         type: choice
         options: 
         - f7
@@ -15,7 +15,7 @@ on:
         required: true
         default: "f7"
       flight_controller:
-        description: "Select Flight controller"
+        description: "Оберіть для якого польотного контролера ..."
         type: choice
         options: 
         - rush
@@ -24,7 +24,7 @@ on:
         required: true
         default: "rush"
       vtx_type:
-        description: "Select VTX type (1.3 .. 5.8)"
+        description: "Оберіть частоту відео передавача (1.3 .. 5.8)"
         type: choice
         options: 
         - "5.8"
@@ -34,13 +34,17 @@ on:
         required: true
         default: "5.8"
       vtx_name:
-        description: "Select VTX name"
+        description: "Оберіть відео передавач ..."
         type: choice
         options: 
         - max_solo
         - geprc
         required: true
         default: "ft"
+      default_osd:
+        description: "Базова ОСД ..."
+        required: true
+        type: boolean
       
 jobs:
   merge-texts:
