@@ -69,6 +69,11 @@ jobs:
           VTX_TABLE=$(cat vtx_tables/${{inputs.vtx_type}}/${{inputs.vtx_name}}.txt)
           echo "$VTX_TABLE" >> ${{ env.FILE_NAME }} 
 
+      - name: Upload VTX block to the file
+        run: |
+          VTX_BLOCK=$(cat vtx_tables/${{inputs.vtx_type}}/vtx_block.txt)
+          echo "$VTX_BLOCK" >> ${{ env.FILE_NAME }} 
+
       - name: Upload footer to the file
         run: |
           FOOTER=$(cat footer.txt)
