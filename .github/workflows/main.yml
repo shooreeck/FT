@@ -7,11 +7,11 @@ on:
         description: "Оберіть для якого дрона (F7..F11)"
         type: choice
         options: 
-        - f7
-        - f8
-        - f9
-        - f10
-        - f11
+        - F7
+        - F8
+        - F9
+        - F10
+        - F11
         required: true
         default: "f7"
       flight_controller:
@@ -42,8 +42,7 @@ on:
         required: true
         default: "ft"
       default_osd:
-        description: "Базова ОСД ..."
-        required: true
+        description: "Тестова ОСД ..."
         type: boolean
       
 jobs:
@@ -63,10 +62,11 @@ jobs:
           HEADER=$(cat header.txt)
           echo "$HEADER" >> ${{ env.FILE_NAME }} 
 
-      - name: Upload PIDs table to the file
+      - name: Upload Master table to the file
         run: |
-          PID_TABLE=$(cat PIDs/${{inputs.frame_size}}.txt)
-          echo "$PID_TABLE" >> ${{ env.FILE_NAME }} 
+          MASTER_TABLE=$(cat MASTER/${{inputs.frame_size}}.txt)
+          echo "$MASTER_TABLE" >> ${{ env.FILE_NAME }} 
+          echo "set craft_name = ${{inputs.frame_size}}" >> ${{ env.FILE_NAME }}
 
       - name: Upload VTX table to the file
         run: |
@@ -82,6 +82,8 @@ jobs:
         run: |
           FOOTER=$(cat footer.txt)
           echo "$FOOTER" >> ${{ env.FILE_NAME }}
+
+      
           
       - name: Post the results
         uses: actions/upload-artifact@v4
