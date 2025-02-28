@@ -29,8 +29,7 @@ on:
         options: 
         - "5.8"
         - "1.3"
-        - "2.4"
-        - "3.3"
+        - "4.9"
         required: true
         default: "5.8"
       vtx_name:
@@ -38,10 +37,11 @@ on:
         type: choice
         options: 
         - max_solo
+        - max_solo_x
         - geprc
         - rush
         required: true
-        default: "ft"
+        default: "max_solo"
       custom_osd:
         description: "Тестова ОСД ..."
         type: boolean
@@ -81,17 +81,17 @@ jobs:
         run: |
           OSD=$(cat OSD/default_osd.txt)
           echo "$OSD" >> ${{ env.FILE_NAME }}
-          
-      - name: Upload VTX table to the file
-        run: |
-          VTX_TABLE=$(cat vtx_tables/${{inputs.vtx_type}}/${{inputs.vtx_name}}.txt)
-          echo "$VTX_TABLE" >> ${{ env.FILE_NAME }} 
 
       - name: Upload VTX block to the file
         run: |
           VTX_BLOCK=$(cat vtx_tables/${{inputs.vtx_type}}/vtx_block.txt)
           echo "$VTX_BLOCK" >> ${{ env.FILE_NAME }} 
-
+      
+      - name: Upload VTX table to the file
+        run: |
+          VTX_TABLE=$(cat vtx_tables/${{inputs.vtx_type}}/${{inputs.vtx_name}}.txt)
+          echo "$VTX_TABLE" >> ${{ env.FILE_NAME }} 
+   
       - name: Upload footer to the file
         run: |
           FOOTER=$(cat footer.txt)
