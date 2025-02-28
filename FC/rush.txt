@@ -1,0 +1,18 @@
+
+############################# FC related block ############################
+
+# resources
+resource MOTOR 8 NONE
+resource SERVO 1 B07
+
+# feature
+feature -AIRMODE
+feature SERVO_TILT
+feature LED_STRIP
+feature OSD
+feature ESC_SENSOR
+
+# serial
+serial 1 64 115200 57600 0 115200
+serial 2 1024 115200 57600 0 115200
+serial 3 2048 115200 57600 0 115200
