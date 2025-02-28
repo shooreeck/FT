@@ -68,6 +68,11 @@ jobs:
           HEADER=$(cat header.txt)
           echo "$HEADER" >> ${{ env.FILE_NAME }} 
 
+      - name: Upload FC related setup
+        run: | 
+          FC_BLOCK=$(cat FC/${{inputs.flight_controller}}.txt)
+          echo "$FC_BLOCK" >> ${{ env.FILE_NAME }}
+      
       - name: Upload Master table to the file
         run: |
           MASTER_TABLE=$(cat PIDs/${{inputs.frame_size}}.txt)
