@@ -1,6 +1,19 @@
 
 ############################# Master block ##############################
 
+servo 0 1000 2000 1500 100 7
+
+beacon RX_LOST
+beacon RX_SET
+
+aux 0 0 0 1350 2100 0 0
+aux 1 2 1 1700 2100 0 0
+aux 2 39 2 900 1300 0 0
+
+adjrange 0 0 3 900 1175 29 3 0 0
+adjrange 1 0 3 1350 1650 29 3 0 0
+adjrange 2 0 3 1850 2100 29 3 0 0
+
 set gyro_lpf1_type = PT2
 set gyro_lpf2_static_hz = 400
 set gyro_notch1_hz = 138
