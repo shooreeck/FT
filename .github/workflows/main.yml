@@ -77,7 +77,7 @@ jobs:
       - name: Update if thermal 
         if: ${{inputs.is_thermal}}
         run: |
-          echo "set craft_name = ${{inputs.frame_size}}" + "T" >> ${{ env.FILE_NAME }}
+          echo "set craft_name = ${{inputs.frame_size}}T" >> ${{ env.FILE_NAME }}
 
       - name: Upload OSD table to the file    
         if: ${{ inputs.custom_osd }}
