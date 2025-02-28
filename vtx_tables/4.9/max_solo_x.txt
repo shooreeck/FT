@@ -1,0 +1,10 @@
+
+###################### VTX Table ###############################
+
+# vtxtable
+vtxtable bands 1
+vtxtable channels 8
+vtxtable band 1 BAND_X   X CUSTOM  4990 5020 5050 5080 5110 5140 5170 5200
+vtxtable powerlevels 4
+vtxtable powervalues 25 500 1000 2500
+vtxtable powerlabels 25 500 1W MAX
