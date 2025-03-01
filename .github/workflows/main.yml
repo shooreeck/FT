@@ -82,10 +82,8 @@ jobs:
           if_true: '${{inputs.frame_size}}T' 
           if_false: '${{inputs.frame_size}}' 
       - name: Set craft name
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: |
-            echo "set craft_name = ${{ steps.fetchDepth.outputs.value }}" >> ${{ env.FILE_NAME }}
+        run: |
+          echo "set craft_name = ${{ steps.fetchDepth.outputs.value }}" >> ${{ env.FILE_NAME }}
             
             
        
