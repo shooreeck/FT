@@ -8,10 +8,7 @@ on:
         type: choice
         options: 
         - F7
-        - F8
-        - F9
         - F10
-        - F11
         required: true
         default: "f7"
       flight_controller:
@@ -116,5 +113,3 @@ jobs:
         with:
           name: result-file
           path: ${{ env.FILE_NAME }} 
-
-          

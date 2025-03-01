@@ -1,7 +1,6 @@
 
 ############################# OSD block ##############################
 
-
 set osd_cap_alarm = 5000
 set osd_alt_alarm = 0
 set osd_vbat_pos = 6561

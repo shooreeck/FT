@@ -12,3 +12,5 @@ vtxtable band 6 LOWRACE  L CUSTOM  5362 5399 5436 5473 5510 5547 5584 5621
 vtxtable powerlevels 4
 vtxtable powervalues 14 27 30 34
 vtxtable powerlabels 25 500 1W MAX
+
+serial 3 2048 115200 57600 0 115200
