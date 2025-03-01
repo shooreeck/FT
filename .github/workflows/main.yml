@@ -47,18 +47,17 @@ on:
         description: "Тестова ОСД ..."
         type: boolean
         default: false
+    
       
 jobs:
   merge-texts:
     runs-on: ubuntu-latest 
+    env:
+       FILE_NAME: ${{inputs.frame_size}}_${{inputs.flight_controller}}_${{inputs.vtx_name}}.txt 
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
-      - name: Create new preset file name
-        run: |
-          FILE_NAME=${{inputs.frame_size}}_${{inputs.flight_controller}}_${{inputs.vtx_name}}.txt 
-          echo "FILE_NAME=$FILE_NAME" >> $GITHUB_ENV
         
       - name: Upload header to the file
         run: |
@@ -111,5 +110,4 @@ jobs:
       - name: Post the results
         uses: actions/upload-artifact@v4
         with:
-          name: result-file
           path: ${{ env.FILE_NAME }} 
