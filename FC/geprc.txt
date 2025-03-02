@@ -1,0 +1,20 @@
+
+############################# FC related block ############################
+
+# resources
+resource SERVO 1 A08
+resource LED_STRIP 1 NONE
+
+# feature
+feature -AIRMODE
+feature SERVO_TILT
+feature TELEMETRY
+feature LED_STRIP
+feature OSD
+feature CHANNEL_FORWARDING
+feature ESC_SENSOR
+
+# serial
+serial 0 8192 115200 57600 0 115200
+serial 1 64 115200 57600 0 115200
+serial 5 1024 115200 57600 0 115200
