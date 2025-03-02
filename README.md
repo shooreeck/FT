@@ -3,9 +3,13 @@
 <h2>Як то працює</h2>
 <p>Перш за все, зареєструйтесь у сервісі <a href="https://github.com/signup">GitHub</a></p>
 <p>Для генерації нового пресета перейдіть у вкладку <a href="https://github.com/shooreeck/FT/actions">Actions</a></p>
+<img src="Addition/actions.png">
 <p>Зліва (бокове меню) оберіть пункт <a href="https://github.com/shooreeck/FT/actions/workflows/main.yml"Preset Generator></a></p>
+<img src="Addition/pg.png">
 <p>В правій частині екрана оберіть <b>Run workflow</b></p>
+<img src="Addition/rw.png">
 <p>Оберіть потрібну конфігурацію майбутнього персета. Памʼятай, що потрібно уважно вводити параметри. \n Можна припуститися помилки, і обрати 4.9 частоту але Max Solo передавач для частоти 5.8, що призведе до помилки.</p>
+<img src="Addition/bl.png">
 <p>Натисни на зелену кнопку Run Workflow</p>
 <p>Почекай 5 секунд і перезавантаж сторінку (Ctrl + R чи CMD + R)</p>
 <p>В списку Workflow має зʼявитися новий запис з позитивним (зеленим) чи негативним (червоним) результатом. </p>
