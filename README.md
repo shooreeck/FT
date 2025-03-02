@@ -14,6 +14,7 @@
 <p>Завантажуй його і користуйся! Успіхів</p>
 
 <p>По вопросам розміщення реклами звертайтесь до <a href="mailto:shooreeck.ua@gmail.com">Рами</a></p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLScuaedns5R30ZW30uu0rBmSZW7Cbog2GkImIZU2Ywx14ZPsRw/viewform?usp=header">Залишити відгук.</a></p>
 
 
 
