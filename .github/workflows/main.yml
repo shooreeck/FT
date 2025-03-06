@@ -64,11 +64,15 @@ jobs:
           cond: ${{ inputs.is_thermal }}
           if_true: '${{inputs.frame_size}}T'
           if_false: '${{inputs.frame_size}}'
+          
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       
       - name: Generate file name
         id: filename
         run: |
-          FILE_NAME="${{ steps.termal.outputs.value }}_${{inputs.flight_controller}}_${{inputs.vtx_type}}_${{inputs.vtx_name}}.txt"
+          FILE_NAME="${{ steps.termal.outputs.value }}_${{inputs.flight_controller}}_${{inputs.vtx_type}}_${{inputs.vtx_name}}_${{ steps.date.outputs.date }}.txt"
           echo "FILE_NAME=$FILE_NAME" >> $GITHUB_OUTPUT
           
         
