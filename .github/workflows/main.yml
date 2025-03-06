@@ -52,70 +52,83 @@ on:
 jobs:
   merge-texts:
     runs-on: ubuntu-latest 
-    env:
-       FILE_NAME: ${{inputs.frame_size}}_${{inputs.flight_controller}}_${{inputs.vtx_name}}.txt 
+    # env:
+    #    FILE_NAME: ${{inputs.frame_size}}_${{inputs.flight_controller}}_${{inputs.vtx_name}}.txt 
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        
-      - name: Upload header to the file
-        run: |
-          HEADER=$(cat header.txt)
-          echo "$HEADER" >> ${{ env.FILE_NAME }} 
 
-      - name: Upload FC related setup
-        run: | 
-          FC_BLOCK=$(cat FC/${{inputs.flight_controller}}.txt)
-          echo "$FC_BLOCK" >> ${{ env.FILE_NAME }}
-      
       - name: Termal or not
         uses: haya14busa/action-cond@v1
         id: termal
         with:
           cond: ${{ inputs.is_thermal }}
-          if_true: '${{inputs.frame_size}}T' 
-          if_false: '${{inputs.frame_size}}' 
+          if_true: echo "FRAME='${{inputs.frame_size}}T'" >> $GITHUB_OUTPUT
+          if_false: echo "FRAME='${{inputs.frame_size}}'" >> $GITHUB_OUTPUT
+     
 
-      - name: Custom OSD or default
-        uses: haya14busa/action-cond@v1
-        id: custom_osd
-        with:
-          cond: ${{ inputs.custom_osd }}
-          if_true: 'custom_osd' 
-          if_false: 'default_osd' 
-
-      - name: Upload Master table to the file
+      - name: Generate file name
+        id: filename
+        run: FILE_NAME = '${{ steps.termal.outputs.FRAME }}_${{inputs.flight_controller}}_${{inputs.vtx_name}}.txt'
+        
+      - name: Upload header to the file
         run: |
-          MASTER_TABLE=$(cat PIDs/${{inputs.frame_size}}.txt)
-          echo "$MASTER_TABLE" >> ${{ env.FILE_NAME }}
+          HEADER=$(cat header.txt)
+          echo "$HEADER" >> $FILE_NAME
 
-      - name: Set craft name
-        run: |
-          echo "set craft_name = ${{ steps.termal.outputs.value }}" >> ${{ env.FILE_NAME }}
-
-      - name: Upload OSD table to the file    
-        run: |
-          OSD=$(cat OSD/${{ steps.custom_osd.outputs.value }}.txt)
-          echo "$OSD" >> ${{ env.FILE_NAME }}
-
-      - name: Upload VTX block to the file
-        run: |
-          VTX_BLOCK=$(cat vtx_tables/${{inputs.vtx_type}}/vtx_block.txt)
-          echo "$VTX_BLOCK" >> ${{ env.FILE_NAME }} 
+      # - name: Upload FC related setup
+      #   run: | 
+      #     FC_BLOCK=$(cat FC/${{inputs.flight_controller}}.txt)
+      #     echo "$FC_BLOCK" >> ${{ steps.f }}
       
-      - name: Upload VTX table to the file
-        run: |
-          VTX_TABLE=$(cat vtx_tables/${{inputs.vtx_type}}/${{inputs.vtx_name}}.txt)
-          echo "$VTX_TABLE" >> ${{ env.FILE_NAME }} 
+      # - name: Termal or not
+      #   uses: haya14busa/action-cond@v1
+      #   id: termal
+      #   with:
+      #     cond: ${{ inputs.is_thermal }}
+      #     if_true: FRAME='${{inputs.frame_size}}T' 
+      #     if_false: FRAME='${{inputs.frame_size}}' 
+
+      # - name: Custom OSD or default
+      #   uses: haya14busa/action-cond@v1
+      #   id: custom_osd
+      #   with:
+      #     cond: ${{ inputs.custom_osd }}
+      #     if_true: 'custom_osd' 
+      #     if_false: 'default_osd' 
+
+      # - name: Upload Master table to the file
+      #   run: |
+      #     MASTER_TABLE=$(cat PIDs/${{inputs.frame_size}}.txt)
+      #     echo "$MASTER_TABLE" >> ${{ env.FILE_NAME }}
+
+      # - name: Set craft name
+      #   run: |
+      #     echo "set craft_name = ${{ steps.termal.outputs.value }}" >> ${{ env.FILE_NAME }}
+
+      # - name: Upload OSD table to the file    
+      #   run: |
+      #     OSD=$(cat OSD/${{ steps.custom_osd.outputs.value }}.txt)
+      #     echo "$OSD" >> ${{ env.FILE_NAME }}
+
+      # - name: Upload VTX block to the file
+      #   run: |
+      #     VTX_BLOCK=$(cat vtx_tables/${{inputs.vtx_type}}/vtx_block.txt)
+      #     echo "$VTX_BLOCK" >> ${{ env.FILE_NAME }} 
+      
+      # - name: Upload VTX table to the file
+      #   run: |
+      #     VTX_TABLE=$(cat vtx_tables/${{inputs.vtx_type}}/${{inputs.vtx_name}}.txt)
+      #     echo "$VTX_TABLE" >> ${{ env.FILE_NAME }} 
    
-      - name: Upload footer to the file
-        run: |
-          FOOTER=$(cat footer.txt)
-          echo "$FOOTER" >> ${{ env.FILE_NAME }}
+      # - name: Upload footer to the file
+      #   run: |
+      #     FOOTER=$(cat footer.txt)
+      #     echo "$FOOTER" >> ${{ env.FILE_NAME }}
           
-      - name: Post the results
-        uses: actions/upload-artifact@v4
-        with:
-          name: archive-result
-          path: ${{ env.FILE_NAME }} 
+      # - name: Post the results
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: archive-result
+      #     path: ${{ env.FILE_NAME }} 
