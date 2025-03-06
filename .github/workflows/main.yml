@@ -64,13 +64,12 @@ jobs:
         id: termal
         with:
           cond: ${{ inputs.is_thermal }}
-          if_true: echo "FRAME='${{inputs.frame_size}}T'" >> $GITHUB_OUTPUT
-          if_false: echo "FRAME='${{inputs.frame_size}}'" >> $GITHUB_OUTPUT
-     
+          if_true: '${{inputs.frame_size}}T'
+          if_false: '${{inputs.frame_size}}'
 
       - name: Generate file name
         id: filename
-        run: FILE_NAME = '${{ steps.termal.outputs.FRAME }}_${{inputs.flight_controller}}_${{inputs.vtx_name}}.txt'
+        run: echo "FILE_NAME = '${{ steps.termal.outputs.FRAME }}_${{inputs.flight_controller}}_${{inputs.vtx_type}}_${{inputs.vtx_name}}.txt'" >> $GITHUB_ENV
         
       - name: Upload header to the file
         run: |
@@ -127,8 +126,8 @@ jobs:
       #     FOOTER=$(cat footer.txt)
       #     echo "$FOOTER" >> ${{ env.FILE_NAME }}
           
-      # - name: Post the results
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: archive-result
-      #     path: ${{ env.FILE_NAME }} 
+      - name: Post the results
+        uses: actions/upload-artifact@v4
+        with:
+          name: archive-result
+          path: $FILE_NAME
