@@ -37,12 +37,12 @@ on:
         description: "Оберіть відео передавач ..."
         type: choice
         options: 
-        - ft
         - max_solo
+        - maten_5.8
         - max_solo_x
-        - geprc
-        - rush
-        - maten
+        - ft
+        - rush_1.3
+        - maten_1.3
         required: true
         default: "max_solo"
       custom_osd:
