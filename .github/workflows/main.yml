@@ -41,6 +41,7 @@ on:
         - max_solo_x
         - geprc
         - rush
+        - maten
         required: true
         default: "max_solo"
       custom_osd:
