@@ -64,10 +64,10 @@ jobs:
           cond: ${{ inputs.is_thermal }}
           if_true: '${{inputs.frame_size}}T'
           if_false: '${{inputs.frame_size}}'
-          
+
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+        run: echo "::set-output name=date::$(date +'%d_%m_%Y')"
       
       - name: Generate file name
         id: filename
