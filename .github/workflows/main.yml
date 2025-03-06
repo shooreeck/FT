@@ -67,7 +67,7 @@ jobs:
 
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%d_%m_%Y')"
+        run: echo "date=$(date +'%d_%m_%Y')" >> $GITHUB_STATE
       
       - name: Generate file name
         id: filename
