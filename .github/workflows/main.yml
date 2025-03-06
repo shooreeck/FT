@@ -71,12 +71,12 @@ jobs:
         id: filename
         run: |
           NAME="${{ steps.termal.outputs.value }}_${{inputs.flight_controller}}_${{inputs.vtx_type}}_${{inputs.vtx_name}}.txt"
-          echo "$FILE" >> $GITHUB_OUTPUT
+          echo "$NAME" >> $GITHUB_OUTPUT
         
       - name: Upload header to the file
         run: |
           HEADER=$(cat header.txt)
-          echo "$HEADER" >> ${{ needs.filename.outputs.NAME }}
+          echo "$HEADER" >> ${{ needs.termal.outputs.NAME }}
 
 
       # - name: Upload FC related setup
