@@ -37,6 +37,7 @@ on:
         description: "Оберіть відео передавач ..."
         type: choice
         options: 
+        - ft
         - max_solo
         - max_solo_x
         - geprc
@@ -52,9 +53,6 @@ on:
 jobs:
   merge-texts:
     runs-on: ubuntu-latest 
-    # env:
-    #    FILE_NAME: ${{inputs.frame_size}}_${{inputs.flight_controller}}_${{inputs.vtx_name}}.txt 
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
