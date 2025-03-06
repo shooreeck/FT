@@ -127,5 +127,4 @@ jobs:
       - name: Post the results
         uses: actions/upload-artifact@v4
         with:
-          name: archive-result
-          path: ${{ steps.filename.outputs.FILE_NAME }}
+          name: ${{ steps.filename.outputs.FILE_NAME }}
