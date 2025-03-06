@@ -66,15 +66,15 @@ jobs:
           cond: ${{ inputs.is_thermal }}
           if_true: '${{inputs.frame_size}}T'
           if_false: '${{inputs.frame_size}}'
-
+      
       - name: Generate file name
         id: filename
-        run: echo "FILE_NAME = '${{ steps.termal.outputs.FRAME }}_${{inputs.flight_controller}}_${{inputs.vtx_type}}_${{inputs.vtx_name}}.txt'" >> $GITHUB_ENV
+        run: echo "FILE_NAME = '${{ steps.termal.outputs.value }}_${{inputs.flight_controller}}_${{inputs.vtx_type}}_${{inputs.vtx_name}}.txt'" >> $GITHUB_ENV
         
       - name: Upload header to the file
         run: |
           HEADER=$(cat header.txt)
-          echo "$HEADER" >> $FILE_NAME
+          echo "$HEADER" >> ${{ needs.filename.outputs.FILE_NAME }}
 
       # - name: Upload FC related setup
       #   run: | 
@@ -130,4 +130,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: archive-result
-          path: $FILE_NAME
+          path: ${{ needs.filename.outputs.FILE_NAME }}
