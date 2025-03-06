@@ -70,7 +70,7 @@ jobs:
       - name: Generate file name
         id: filename
         run: |
-          "FILE_NAME='${{ steps.termal.outputs.value }}_${{inputs.flight_controller}}_${{inputs.vtx_type}}_${{inputs.vtx_name}}.txt'"
+          FILE_NAME='${{ steps.termal.outputs.value }}_${{inputs.flight_controller}}_${{inputs.vtx_type}}_${{inputs.vtx_name}}.txt'
           echo "$FILE_NAME" >> $GITHUB_OUTPUTS
         
       - name: Upload header to the file
