@@ -76,7 +76,7 @@ jobs:
       - name: Upload header to the file
         run: |
           HEADER=$(cat header.txt)
-          echo "$HEADER" >> ${{ needs.filename.outputs.FILE_NAME }}
+          echo "$HEADER" >> ${{ needs.filename.outputs.NAME }}
 
 
       # - name: Upload FC related setup
