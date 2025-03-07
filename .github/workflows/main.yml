@@ -40,7 +40,7 @@ on:
         - max_solo
         - maten_5.8
         - max_solo_x
-        - ft
+        - ft_1.3
         - rush_1.3
         - maten_1.3
         required: true
