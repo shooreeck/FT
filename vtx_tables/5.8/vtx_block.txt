@@ -22,3 +22,9 @@ vtx 17 7 0 8 0 1875 2100
 vtx 18 0 0 0 0 900 900
 vtx 19 0 0 0 0 900 900
 vtx 20 0 0 0 0 900 900
+
+set vtx_band = 4
+set vtx_channel = 5
+set vtx_power = 1
+set vtx_freq = 5820
+set vcd_video_system = PAL
