@@ -7,3 +7,6 @@ vtxtable band 1 A        A CUSTOM  1080 1120 1160 1200 1240 1258 1280 1320 1360
 vtxtable powerlevels 4
 vtxtable powervalues 25 400 800 2000
 vtxtable powerlabels 25 400 800 MAX
+
+# Owerrided block
+vtx 2 2 0 0 4 1800 2100

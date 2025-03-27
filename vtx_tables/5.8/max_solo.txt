@@ -13,4 +13,7 @@ vtxtable powerlevels 4
 vtxtable powervalues 14 27 30 34
 vtxtable powerlabels 25 500 1W MAX
 
+# Owerrided block
+vtx 2 2 0 0 4 1800 2100
+
 serial 3 2048 115200 57600 0 115200

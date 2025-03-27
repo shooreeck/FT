@@ -109,16 +109,16 @@ jobs:
         run: |
           OSD=$(cat OSD/${{ steps.custom_osd.outputs.value }}.txt)
           echo "$OSD" >> ${{ steps.filename.outputs.FILE_NAME }}
-
-      - name: Upload VTX block to the file
-        run: |
-          VTX_BLOCK=$(cat vtx_tables/${{inputs.vtx_type}}/vtx_block.txt)
-          echo "$VTX_BLOCK" >> ${{ steps.filename.outputs.FILE_NAME }}
       
       - name: Upload VTX table to the file
         run: |
           VTX_TABLE=$(cat vtx_tables/${{inputs.vtx_type}}/${{inputs.vtx_name}}.txt)
           echo "$VTX_TABLE" >> ${{ steps.filename.outputs.FILE_NAME }}
+
+      - name: Upload VTX block to the file
+        run: |
+          VTX_BLOCK=$(cat vtx_tables/${{inputs.vtx_type}}/vtx_block.txt)
+          echo "$VTX_BLOCK" >> ${{ steps.filename.outputs.FILE_NAME }}
    
       - name: Upload footer to the file
         run: |

@@ -10,7 +10,5 @@ vtxtable powerlevels 2
 vtxtable powervalues 25 2000
 vtxtable powerlabels 25 MAX
 
-######################################################## VTX Block #############################################################
-
 # Owerrided block
 vtx 2 2 0 0 2 1800 2100
