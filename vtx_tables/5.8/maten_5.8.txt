@@ -10,7 +10,7 @@ vtxtable band 5 RACEBAND R CUSTOM  5658 5695 5732 5769 5806 5843 5880 5917
 vtxtable band 6 LOWRACE  L CUSTOM  5362 5399 5436 5473 5510 5547 5584 5621
 vtxtable powerlevels 5
 vtxtable powervalues 25 200 600 1600 2500
-vtxtable powerlabels 25 200 600 1W6 2W5
+vtxtable powerlabels 25 200 600 1W6 MAX
 
 # Owerrided block
 vtx 2 2 0 0 5 1800 2100
